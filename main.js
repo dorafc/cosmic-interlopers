@@ -26,7 +26,7 @@ let playerWidth = player.clientWidth
 
 
 // move invader
-function moveInvader(){
+function moveInvaders(){
 	// move the invader depending on its direction
 	if (invaderDirection == 1){
 		invaderLeft += 10
@@ -35,7 +35,10 @@ function moveInvader(){
 	}
 
 	// update the invader position
-	allInvaders.style.left = invaderLeft + 'px'
+	// allInvaders.style.left = invaderLeft + 'px'
+	for (let i = 0; i < invaders.length; i++){
+		invaders[i].style.left = invaderLeft + 'px'
+	}
 
 	// determine if the invader needs to turn around
 	if (invaderLeft >= (screenWidth - invaderWidth - 60) || invaderLeft <= 0){
@@ -43,7 +46,7 @@ function moveInvader(){
 	}
 
 	// keep moving the invader
-	setTimeout(() => {moveInvader()}, 75)
+	setTimeout(() => {moveInvaders()}, 75)
 }
 
 // function to set up keyboard event listener for the player
@@ -75,6 +78,5 @@ function movePlayer(direction){
 	player.style.left = playerLeft + 'px'
 }
 
-console.log(invaders[0].clientLeft)
 initPlayer()
-moveInvader()
+moveInvaders()

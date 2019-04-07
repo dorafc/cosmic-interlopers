@@ -139,7 +139,6 @@ body{
 	list-style: none;
 	display: flex;
 	flex-direction: row;
-	position: relative;
 }
 .invader{
 	display: block;
