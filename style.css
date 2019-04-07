@@ -139,12 +139,15 @@ body{
 .invaders{
 	padding: 0;
 	list-style: none;
+	display: flex;
+	flex-direction: row;
+	position: relative;
 }
 .invader{
 	display: block;
 	width: 110px;
 	height: 80px;
-	margin: 0;
+	margin: 0 20px 0 0;
 	padding: 0;
 	position: relative;
 }

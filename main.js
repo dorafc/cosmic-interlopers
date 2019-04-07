@@ -1,6 +1,10 @@
 // DOM elements
 let space = document.querySelector('.space')
 let player = document.querySelector('.defender')
+let allInvaders = document.querySelector('.invaders')
+
+// list of all invaders
+let invaders = [].slice.call(document.querySelectorAll('.invader'))
 
 // position of the invader
 let invaderLeft = 0;
@@ -11,14 +15,11 @@ let playerLeft = 0;
 // 1 moves right, -1 moves left
 let invaderDirection = 1; 
 
-// list of all invaders
-let invaders = [].slice.call(document.querySelectorAll('.invader'));
-
 // width of the screen
 let screenWidth  = space.clientWidth - 60
 
 // width of an invader
-let invaderWidth = invaders[0].clientWidth
+let invaderWidth = invaders[0].clientWidth * 3 - 20
 
 // width of the player
 let playerWidth = player.clientWidth
@@ -34,7 +35,7 @@ function moveInvader(){
 	}
 
 	// update the invader position
-	invaders[0].style.left = invaderLeft + 'px'
+	allInvaders.style.left = invaderLeft + 'px'
 
 	// determine if the invader needs to turn around
 	if (invaderLeft >= (screenWidth - invaderWidth - 60) || invaderLeft <= 0){
@@ -74,5 +75,6 @@ function movePlayer(direction){
 	player.style.left = playerLeft + 'px'
 }
 
+console.log(invaders[0].clientLeft)
 initPlayer()
 moveInvader()
